@@ -1,6 +1,6 @@
 # Pack and Clash Explorer — Đặc tả gameplay
 
-Ngày cập nhật: 03/11/2026.
+Ngày cập nhật: 04/11/2026.
 
 ## Quy tắc hiện hành của prototype 02
 
@@ -10,23 +10,121 @@ Yêu cầu mới trong file người dùng gửi ngày 03/11/2026 được ưu t
 | --- | --- |
 | Mỹ thuật | Nền đen huyền và nâu gỗ cháy, viền hổ phách, điểm nhấn ngọc bích và chu sa |
 | Kích thước | 390×844, năm vùng cố định 48/210/280/190/116 px; màn chiến đấu không cuộn |
-| Lưới | Đủ 25 ô khả dụng, tọa độ hàng/cột 0–4 để thử hệ thống đa ô |
+| Lưới | Khởi đầu 3×3; mua 4×4 bằng 500 Bạc sau boss 1, mua 5×5 bằng 1.500 Bạc sau boss 3; khung tọa độ 0–4 |
 | Xoay | Cho phép xoay 90° với vật phẩm chữ nhật nếu vị trí sau xoay hợp lệ |
 | Pha chiến đấu | Khóa đặt, di chuyển, ghép, xoay, mua, bán và reroll; chỉ xem thông tin |
 | Tương tác | Ngưỡng kéo 6 px, preview xanh/hổ phách/đỏ, trả về vị trí cũ khi không hợp lệ |
-| Trang bị | 6 loại, đủ 1×1, 1×2, 2×1, 2×2; có sát thương, giáp, hồi máu và tăng tốc |
-| Thương điểm | 3 ô mua, đổi hàng giá 10 Bạc, khóa hàng qua vòng và vùng kéo bán |
+| Trang bị | 8 loại, đủ 1×1, 1×2, 2×1, 2×2; có sát thương, giáp, hồi máu và tăng tốc |
+| Thương điểm | 3 ô mua bằng Lộ phí, đổi hàng giá 10 Lộ phí, khóa hàng qua vòng và vùng kéo bán |
+| Tiếp tế | Thắng round thường chọn 1/3 gói, mỗi gói 3 món Tier I; bảo đảm một gói thuộc Loadout, không đổi danh sách |
 | Ngoài trận | 5 tab, bản đồ node, nâng chỉ số, đột phá, 3 loại rương |
-| Tài nguyên | Bạc, Linh thạch, Linh sa và mảnh trang bị; giá và tỷ lệ là dữ liệu prototype |
+| Tài nguyên | Năng lượng 30, hồi 1/5 phút, mỗi lần xuất phát tốn 5; Lộ phí riêng trong chuyến; Bạc tích lũy, Linh thạch, Linh sa và mảnh trang bị; giá và tỷ lệ là dữ liệu prototype |
 | Dev | Chuyển chế độ, thêm tài nguyên/vật phẩm, tăng Tier, thắng/thua và reset lưới |
 
-Cooldown độc lập, ghép tối đa Tier III, thưởng lần đầu duy nhất và Auto Farm tối đa 12 giờ tiếp tục được giữ. Lưới mở từng ô và thao tác trong lúc giao chiến của thiết kế cũ không được áp dụng trong prototype 02.
+Cooldown độc lập, ghép tối đa III khi chưa có skin (vũ khí có skin mở đến VII), thưởng lần đầu duy nhất và Auto Farm tối đa 12 giờ tiếp tục được giữ. Mở rộng theo mốc thay cho mua từng ô; thao tác trong lúc giao chiến của thiết kế cũ không được áp dụng trong prototype 02.
 
+
+### Kinh tế bước 1 đã chốt
+
+Mỗi chuyến mới nhận 60 Lộ phí để mua, bán và đổi Shop (10 Lộ phí/lần). Bán đồ chỉ tăng Lộ phí, không tăng Bạc. Chưa cấp thêm Lộ phí theo round; nguồn bổ sung là bán vật phẩm.
+
+Qua round hoặc thử lại vòng thua giữ Lộ phí còn lại, không cấp lại tiền khởi đầu. Thắng boss hoặc bỏ chuyến để nhận chuyến mới làm Lộ phí dư hết hiệu lực, không đổi sang Bạc. Về màn ngoài trận rồi tiếp tục từ Trang chủ giữ nguyên chuyến. Tải lại trang tạo chuyến mới theo giới hạn lưu hiện tại.
+
+Bạc dùng cho hệ thống ngoài trận. Bạc và nguyên liệu đã nhận ở các round thắng được giữ khi thua hoặc bỏ chuyến. Thưởng boss chỉ trao khi thắng boss, thưởng lớn chỉ trao lần đầu. Lượng thưởng hiện có chưa đổi trong bước này.
+
+### Tiếp tế bước 2 đã chốt
+
+Thay tự nhận 3 món ngẫu nhiên bằng chọn 1 trong 3 gói sau mỗi round thường. Mỗi gói có 3 món Tier I và hiển thị rõ loại, kích thước, nguồn trong/ngoài Loadout. Các gói thiên về tấn công, phòng thủ và hỗ trợ; hai món đầu được chọn theo vai trò khi bộ sưu tập có loại đó.
+
+Ít nhất một gói hoàn toàn thuộc Loadout. Các gói còn lại ưu tiên Loadout cho món theo vai trò và có thể thêm loại đã mở khóa bên ngoài. Không đưa loại chưa mở vào tiếp tế. Danh sách được cố định khi thắng, không đổi miễn phí hoặc trả phí. Chọn không tốn tiền, chỉ cấp đúng một gói một lần vào khay, rồi sang pha sắp xếp của vòng sau. Không tự bắt đầu giao chiến.
+
+Thua hoặc thử lại không cấp tiếp tế mới; boss không có gói tiếp tế và giữ phần thưởng hiện hành. Chưa thay HP, giáp, cooldown, sức mạnh địch hoặc cơ chế ghép. Chưa chuẩn hóa tổng giá trị mua/bán của các gói; cần đánh giá lựa chọn khi chơi thử.
+
+### Chiến đấu bước 3 và phần bổ sung đã chốt
+
+- Áp dụng cơ chế khác nhau cho ba stage đầu: Xích Sa nhiều quái nhỏ; Phế Tích có giáp giảm theo đòn; Phong Khiếu có đòn mạnh tích lực. Stage 4–5 giữ cơ chế cũ.
+- Boss Yêu Hồ gọi thêm quái mỗi 8 giây (tối đa 2 viện binh còn sống); Khôi Lỗi có giáp 18 trong 6 giây rồi hở giáp 4 giây; Yêu Điểu đánh mạnh mỗi 8 giây với báo trước 2 giây. Quái Phong Điểu thường dùng chu kỳ 6 giây.
+- Xem số lượng, hệ và cơ chế vòng kế tiếp ngay khi chọn tiếp tế; xem lại vòng hiện tại ở sân đấu. Nội dung preview và địch khi vào trận dùng chung nguồn dữ liệu.
+- Ngũ hành cố định: Kim → Mộc → Thổ → Thủy → Hỏa → Kim (mũi tên là khắc). Đúng khắc ×1,2 sát thương; chiều bất lợi ×0,9; quan hệ khác ×1. Áp dụng lên sát thương vũ khí trước giáp và khiên. Giáp để lọt ít nhất 20% (làm tròn, tối thiểu 1).
+- Bốn hướng vũ khí: kiếm Kim cận nhanh (24/1,8s), trọng đao Hỏa cận mạnh (48/3,4s), phi châm Mộc xa nhanh (14/1,1s), nỏ Thủy xa mạnh (37/2,8s). Cận đánh địch còn sống phía trước; xa đánh phía sau. Địch có đủ năm hệ; chưa có vũ khí Thổ trong bộ bốn hướng này. Đồ hỗ trợ và nhân vật chưa mang hệ.
+- **Lựa chọn năng lượng mới nhất của người dùng:** thu 5 điểm mỗi lần xuất phát, bao gồm round kế tiếp và thử lại. Không áp dụng đề xuất thu một lần cho cả chuyến.
+- Năng lượng tối đa 30; hồi 1/5 phút cả offline; không tích thời gian khi đầy. Auto Farm không tốn. Chọn stage, tiếp tế và sắp xếp không tốn; không đủ 5 thì không vào combat.
+- Mua +10 bằng 100 Bạc (3 lần/ngày, đặt lại 00:00 UTC+7) hoặc 5 Linh thạch. Chỉ mua khi không vượt 30. Giữ tách biệt Lộ phí. Bản lưu lâu dài có năng lượng, thời điểm hồi và bộ đếm mua theo ngày; bản lưu cũ được chuyển tự động, không mất nâng cấp hay tài nguyên.
+- Bản demo vẫn không lưu chuyến đang chơi; tải lại không hoàn phí đã dùng. Các thao tác Dev thắng/thua ngay phục vụ kiểm thử và bỏ qua phí, nút Xuất phát vẫn thu đúng 5.
+
+
+### Balo và preview ghép bước 4 đã chốt
+
+- Mỗi hồ sơ bắt đầu balo 3×3 (9 ô); mua lần lượt 4×4 (500 Bạc + thắng boss stage 1), rồi 5×5 (1.500 Bạc + thắng boss stage 3). Giữ vĩnh viễn, áp dụng ngay cho chuyến hiện tại; không tiêu Lộ phí.
+- Tab Hòm tiêu hiển thị vùng ô đã mở, vùng mở thêm, giá và điều kiện trước khi mua. Ô khóa trong khung 5×5 không nhận bất kỳ phần diện tích nào của vật phẩm, kể cả khi xoay hoặc ghép.
+- Bản lưu cũ chưa có trường kích thước balo được chuyển về 3×3, giữ tài nguyên, nâng cấp và các boss đã vượt. Đồ khởi đầu không vừa chuyển về khay. Chưa thay công thức Auto Farm theo diện tích.
+- Giữ hệ số ghép 1,7, Tier tối đa III, vị trí/hướng của món đích và cooldown thấp hơn. Kéo lên mục tiêu hợp lệ hiện preview, thả là ghép, không có bước xác nhận thêm.
+- Preview gồm diện tích hai món trước/sau, chỉ số lý thuyết tương ứng công/thủ/hồi phục, số ô giải phóng thực tế và tiến độ cooldown. Chỉ so sánh −15% khi giả định hai món cùng hoạt động. Món từ khay chưa chiếm ô hoặc gây hiệu lực trên lưới; UI ghi rõ lợi ích thực tế của trường hợp này.
+- Phù tăng tốc hiển thị mức hiệu ứng mạnh nhất trước/sau và giải thích không cộng dồn, không dùng phép cộng hai mức tăng tốc để báo giảm 15%.
+- Dev thử nhanh cả ba kích thước trong pha chuẩn bị; thu nhỏ chuyển món vượt vùng về khay và không sửa kích thước vĩnh viễn.
+
+
+### Kết quả và gợi ý bước 5 đã chốt
+
+- Bảng tóm tắt sau từng round; mở rộng để xem đóng góp từng món. Ghi thời gian mô phỏng, sát thương thực vào HP địch, HP nhân vật bị mất, khiên hấp thụ, hồi hữu ích và đòn kết liễu.
+- Chi tiết phân biệt giáp/khiên địch, lợi thế/bất lợi hệ, hồi dư, khiên vượt trần, khiên mang từ vòng trước và số lần kích hoạt. Không tính đồ trong khay hoặc sát thương dư khi hạ địch vào DPS thực.
+- Tối đa hai gợi ý dựa trên dữ liệu: đòn tích lực kết liễu, giáp giảm nhiều sát thương, hệ bất lợi, hồi dư hoặc thiếu khiên. Mỗi gợi ý có số liệu hỗ trợ; không đủ bằng chứng thì không mặc định yêu cầu đổi đồ/nâng cấp.
+- Lưu kết quả hoàn tất gần nhất của từng cặp stage/round (tối đa 25 mục), giữ qua tải trang. Trận mới so sánh với đúng cặp stage/round trước đó; bảng so sánh gọn được lưu cùng kết quả, không lưu chuỗi trận vô hạn.
+- So sánh có cảnh báo ngữ cảnh: đổi trang bị/Tier/bố trí, cấp luyện khí/đột phá, kích thước balo hoặc HP/khiên/tăng tốc/cooldown đầu trận. Không khẳng định thời gian ngắn hơn luôn tốt, nhất là khi vẫn thua.
+- Trang chủ mở lại báo cáo; xem báo cáo không trao thưởng hoặc khởi chạy trận. Luồng thắng round → kết quả → chọn tiếp tế → sắp xếp; thua → kết quả → chuẩn bị lại.
+- Thống kê đặt lại mỗi round/lần thử. Trận bỏ dở không ghi vào nhật ký; kết quả ép bằng Dev và chỉnh Tier giữa trận không dùng cho gợi ý hoặc so sánh với trận thật.
 
 
 Game màn hình dọc kết hợp sắp xếp balo trên lưới, ghép trang bị và chiến đấu tự động, lấy bối cảnh hoang mạc mang đậm văn hóa Á Đông và tiên hiệp. Nhân vật chính là lãng khách trùng sinh làm thợ săn trong thế giới tu tiên, mang hòm hàng và thẻ tiêu cục. Người chơi tự vượt stage để nhận thưởng lần đầu, mở khóa nguồn Auto Farm và dùng tài nguyên nâng cấp trang bị, mở rộng balo.
 
 Đặc tả tổng hợp Prompt.md và các lựa chọn trong cuộc trao đổi. Các quyết định trực tiếp của người chơi được ưu tiên khi khác với đề xuất ban đầu. Các quy tắc bổ sung và thông số thử nghiệm được đánh dấu riêng ở cuối tài liệu.
+
+### Auto Farm bước 6 đã chốt
+
+Các quy tắc này thay thế công thức Auto Farm dựa vào Loadout ở thiết kế trước:
+
+- Hiệu suất cố định theo stage đã thắng boss, không phụ thuộc Loadout, luyện khí, đột phá hay số ô balo. Đổi đội hình chiến đấu không làm thay đổi thu nhập nền.
+- Sản lượng thử mỗi giờ theo thứ tự Bạc / Linh sa / mảnh: Xích Sa **130 / 4 / 1,5**; Phế Tích **65 / 12 / 1,5**; Phong Khiếu **65 / 4 / 5**; Thanh Đăng **110 / 9 / 2**; Hắc Phong **90 / 7 / 4**. Ba vùng đầu giữ thế mạnh riêng; hai vùng sau cung cấp hỗn hợp. Chưa thay chi phí nâng cấp hay phần thưởng đánh trực tiếp.
+- Chỉ chọn vùng đã khai thông. Không tốn năng lượng, không đánh boss, không nhận thưởng lớn lần đầu. Vẫn tích lũy cả online/offline, tối đa 12 giờ từ lần nhận gần nhất; chưa mô phỏng từng round quái trong Auto Farm.
+- Đổi vùng chốt thưởng của khoảng trước theo vùng trước; giữ quà và thời gian tích lũy. Đổi vùng khi đầy không vượt giới hạn. Người chơi chủ động nhận, lấy phần nguyên và giữ phần lẻ; nhận được bất kỳ loại nào đạt một đơn vị.
+- Giao diện hiển thị sản lượng mỗi giờ, bảng so sánh, thời gian và thanh giới hạn, ba tài nguyên chờ nhận. Sau khi nhận, chỉ dẫn đến Luyện khí/mở balo nếu đủ điều kiện; không tự mua.
+- Từ bước 10, mảnh chung dùng đột phá. Mảnh skin là loại riêng, không nhận từ Auto Farm.
+- Chuyển bản lưu cũ bằng phiên bản công thức riêng: chốt khoảng chưa tính theo Loadout/công thức cũ đúng một lần, trong phần giới hạn còn lại, rồi chuyển sang công thức mới. Giữ nguyên tài nguyên và tiến trình. Mức thu nhập tương lai có thể khác mức cũ, cần tiếp tục chơi thử cân bằng.
+
+
+### Đội hình và nhịp giao chiến bước 7 đã chốt
+
+- Ba bộ khởi đầu gợi ý: Tấn công (kiếm/nỏ/bình), Cân bằng (kiếm/khiên/bình), Tăng tốc (trọng đao/khiên/phù). Chọn rồi chỉnh từng món; không cấp đồ hoặc tiêu tiền. Chỉ áp dụng chuyến mới; nguồn tiếp tế của chuyến hiện tại giữ Loadout đã chụp khi xuất phát.
+- Khi thắng vòng thường và chuyển sang vòng kế tiếp sau chọn tiếp tế: hồi tối đa 20% HP tối đa, không vượt trần, đúng một lần. Giữ khiên/tăng tốc/hồi chiêu. Không tự hồi vì chờ; thống kê kết quả trước đó không thay đổi.
+- Mỗi lần đánh có đồng hồ riêng, báo cuồng nộ trước 5 giây. Từ giây 60, toàn bộ địch tăng 10% sát thương gốc; thêm 10% mỗi 10 giây. Quái gọi thêm cùng chịu hệ số này; không nhân chồng hay tăng tốc đánh.
+- Hết 180 giây chưa thắng thì thua vì hết giờ, không có đòn đánh mới tại mốc 180. Báo cáo giữ đúng HP còn lại và nguyên nhân, không thưởng. Thử lại đặt đồng hồ về 0, hồi đầy HP/đặt lại khiên và hồi chiêu như cũ, tốn 5 năng lượng khi xuất phát.
+- Thời gian tính theo mô phỏng; ×2 chạy nhanh tương ứng, tạm dừng/ẩn trang không tính. Không thay Auto Farm.
+
+### Tiến độ xử lý feedback sau bước 7
+
+Ước tính khoảng **85% phần triển khai cơ chế**, không phải tỷ lệ chứng minh game đã cân bằng hoặc thú vị. Các nhóm feedback có phần giao nhau nên đây là đánh giá phạm vi, không phải phép chia số kiểm thử.
+
+| Nhóm feedback | Bằng chứng hiện có | Còn cần kiểm chứng/chốt |
+| --- | --- | --- |
+| Quyết định giữa vòng | Chọn tiếp tế, Shop bằng Lộ phí, cơ chế địch khác nhau | Lựa chọn có còn đáng kể khi balo lớn/đồ mạnh? |
+| Đánh đổi ghép | Preview diện tích/hiệu lực/cooldown, thống kê hồi dư và khiên | So sánh giữ đôi với ghép trong các chuyến thật |
+| Thao tác trong trận | Khóa sắp xếp khi đánh, khay không hoạt động | Đánh giá tốc độ sắp xếp và thao tác nhầm trên điện thoại |
+| Đa dạng Loadout | 8 loại đồ, 3 bộ gợi ý, ngũ hành, hồi 20%, cuồng nộ/timeout | Tăng tốc còn yếu trong đối chiếu ban đầu; chưa chứng minh nhiều bộ hữu dụng xuyên stage |
+| Áp lực diện tích | 3×3/4×4/5×5, mở theo mốc, preview vùng mở | Chưa có thử toàn chuyến đủ rộng để chứng minh 5×5 vẫn cần bỏ đồ |
+| Chơi trực tiếp/Auto Farm | Thu nhập nền độc lập Loadout, chuyên tài nguyên theo stage | Tốc độ tiến triển, giá nâng cấp, giá trị thưởng trực tiếp so với farm |
+| Quy tắc và giải thích thất bại | Tách tiền, thưởng/thử lại, hồi phục, báo cáo và so sánh | Chốt giới hạn khay; công dụng trang bị hoàn chỉnh/mảnh ngoài trận |
+| Phạm vi prototype và chơi thử | 3 stage có cơ chế, Dev, 96 kiểm thử, 36 trận đối chiếu cố định | Nhịp toàn stage 3–5 phút, độ thú vị và giá trị chơi lại cần người chơi thực tế |
+
+Đối chiếu hiện tại chỉ dùng ba món khởi đầu, HP đầy, chưa có Shop/tiếp tế. Không coi bảng kết quả này là bằng chứng cân bằng hoàn chỉnh. Bước ưu tiên tiếp theo là chơi thử toàn chuyến ở balo 3×3 và 5×5, sau đó điều chỉnh nguồn đồ/địch/chi phí theo số liệu thay vì thêm hệ thống mới.
+
+### Chơi thử và cân bằng bước 8
+
+- Người chơi chốt mục tiêu 3–5 phút cho **toàn chuyến**, bao gồm sắp xếp và chọn đồ. Giữ nhịp đánh ngắn. Chưa đo thời gian thao tác thực tế.
+- Áp dụng thử Tật Phong Phù từ 16% lên **30%** ở Tier I, giữ hồi chiêu 6 giây/hiệu lực 4 giây/kích thước 2×1/không cộng dồn. Ghép Tier II thành 51%, Tier III kích hoạt 87% trước nâng cấp. Không tự sửa thống kê của trận đã lưu; so sánh báo cáo cũ có cảnh báo khác phiên bản quy tắc.
+- Đã đối chiếu 1.176 chuyến bằng cùng bộ seed, gồm balo 3×3/5×5 ở ba stage đầu, thêm hai stage cuối ở 5×5 và kiểm tra bước thời gian nhỏ hơn. Có Shop, tiếp tế, ghép và hồi phục; không giả lập thời gian suy nghĩ của người chơi. Điều kiện và lệnh tái lập nằm trong README.
+- Phong Khiếu, giữ đúng ba loại của Tăng tốc: 5×5 tăng từ 4/12 lên 11/12 chuyến thắng, còn 3×3 chỉ 0/12 → 1/12. Kết quả hai stage cuối chưa đồng đều; bộ mô phỏng chọn đồ linh hoạt tại Thanh Đăng giảm 13/36 → 9/36. Chưa coi mọi Loadout đã cân bằng.
+- Balo 5×5 dùng ít diện tích hơn ở stage thấp; chưa đổi diện tích hoặc tăng chỉ số địch chỉ vì điều này. Cần chơi thử với người thật tại stage phù hợp tiến trình và đánh giá nguồn đồ/đánh đổi ghép.
+- Giữ đánh giá hoàn thành feedback cơ chế ở khoảng 85%: số mô phỏng tăng giúp phát hiện vấn đề, không tự chứng minh độ vui, tính cân bằng hoặc giá trị chơi lại. Giới hạn khay và công dụng mảnh/trang bị ngoài trận vẫn là phần cần chốt.
 
 ## 1. Vòng lặp chơi trực tiếp đã chốt
 
@@ -37,7 +135,7 @@ Game màn hình dọc kết hợp sắp xếp balo trên lưới, ghép trang b�
 5. Thắng round nhận đồ tiếp tế thuộc Loadout vào khay, sắp xếp hoặc ghép đồ rồi chủ động bấm tiếp tục.
 6. Đánh boss ở round cuối để hoàn thành stage và nhận thưởng.
 
-Một stage hướng tới 5 round, gồm 4 round thường và 1 round boss; thời lượng chiến đấu mục tiêu khoảng 3–5 phút. Khoảng nghỉ sắp xếp do người chơi quyết định.
+Một stage hướng tới 5 round, gồm 4 round thường và 1 round boss; mục tiêu toàn chuyến khoảng 3–5 phút, gồm chiến đấu, chọn tiếp tế và sắp xếp. Giữ trận đánh ngắn; thời gian sắp xếp do người chơi quyết định (chốt lại ở bước 8).
 
 Người chơi được kéo thả và ghép đồ trong lúc đánh; chiến đấu không tạm dừng vì thao tác. Giữa các round, trận chỉ tiếp tục sau khi người chơi bấm nút.
 
@@ -246,3 +344,55 @@ Ba ví dụ định hướng cần phân biệt giữa nguồn và chuyển th�
 - Côn Bằng: Tiêu Dao Du mô tả Côn và Bằng ở quy mô hàng nghìn lý. Đề xuất dành hình tượng này cho đại cảnh hoặc nội dung cấp cao về sau; không đưa vào làm boss nhỏ của demo. Nguồn: [Trang Tử, Tiêu Dao Du](https://ctext.org/zhuangzi/enjoyment-in-untroubled-ease).
 
 Mỗi mục trong danh sách quái khi triển khai cần ghi tên, nguồn truyền thuyết, mô tả kích thước, phần sáng tác thêm, vùng xuất hiện và vai trò chiến đấu. Các ví dụ hồ yêu hoặc cơ quan do game sáng tác phải được phân biệt với sinh vật có tên và mô tả cụ thể trong cổ thư.
+
+
+## Bước 9 — Khay 12 món và bán theo lựa chọn
+
+- Khay chứa tối đa 12 **món**, không phụ thuộc diện tích từng món hay kích thước balo.
+- Nhận tiếp tế và đưa đồ từ lưới về khay được phép vượt tạm thời. Giữ đầy đủ vật phẩm; không tự bán hay xóa. Phải xử lý phần dư trước lần xuất phát tiếp theo bằng sắp xếp, ghép hoặc bán. Xuất phát bị chặn không trừ năng lượng.
+- Shop/rương yêu cầu ít nhất một chỗ trống trước khi trừ tiền; rương chỉ mở khi chuyến ở pha chuẩn bị. Đủ 12 món vẫn được chiến đấu.
+- Nút **Chọn bán** mở danh sách riêng của khay. Người chơi tự tích từng món; xem tên, bậc, giá từng món, số lượng và tổng Lộ phí rồi xác nhận. Không chọn sẵn và không đưa đồ đang trang bị vào danh sách. Hủy không thay đổi tài nguyên.
+- Giá giữ công thức hiện tại: `floor(giá Shop × 45% × 1,7^(bậc−1))`. Tiền bán là Lộ phí trong chuyến, không phải Bạc tích lũy. Danh sách/giá được kiểm tra lại để tránh bán nhầm sau thay đổi đồ hoặc bán lặp.
+- Đây vẫn là prototype: chuyến và vật phẩm trong khay chưa lưu qua tải trang. Mốc 12 món cần tiếp tục chơi thử để đánh giá mức độ phải dọn đồ và ảnh hưởng đến thời gian chuẩn bị.
+
+
+## Bước 10 — Skin vũ khí, mảnh riêng và trần ghép VII
+
+Đã chốt A/A/A: bộ sưu tập lưu skin vĩnh viễn; đồ trong chuyến vẫn đặt lại. Mỗi vũ khí dùng một skin, áp dụng từ chuyến mới, không cộng dồn. Chuyến giữ cấu hình riêng cho toàn bộ đồ nhận thêm, không đổi sức mạnh/trần khi người chơi đổi skin ngoài trận. Bốn vũ khí có skin; pháp bảo hỗ trợ giữ III.
+
+| Phẩm chất | Chỉ số gốc cộng thêm (thử) | Trần ghép | Mảnh chế tạo (thử) |
+| --- | ---: | --- | ---: |
+| Thường | 5% | III | 3 |
+| Hiếm | 10% | IV | 4 |
+| Quý | 15% | V | 5 |
+| Sử thi | 20% | VI | 6 |
+| Truyền thuyết | 25% | VII | 8 |
+
+Skin theo từng loại vũ khí, chế tạo bằng đúng mảnh/phẩm chất, thành công chắc chắn và chỉ một lần. Mảnh dư giữ lại; không tự trang bị. Skin không cấp đồ bậc cao đầu chuyến. Tier I–III vẫn ×1,7, IV–VII ×1,5 mỗi bậc; ghép từ hai món hoạt động đầy đủ đánh đổi 15% hoặc 25% tổng hiệu lực để giảm diện tích. Preview và giá bán dùng hệ số mới. Mức ×1,5 và bonus skin là thông số thử.
+
+Mảnh chung giữ nguồn Auto Farm và thêm 5/8/12/16/20 mỗi lần thắng boss stage 1–5. Đột phá lần n yêu cầu cấp luyện khí 3n, chọn trả 10n Linh thạch hoặc 20n mảnh chung, vẫn +30% chỉ số gốc. Mảnh skin không dùng đột phá.
+
+Một chương gồm 5 stage. Boss stage 1–4: mảnh Thường 60%, Hiếm 20%, không rơi 20%. Boss kết chương stage 5: Thường 40%, Hiếm 30%, Quý 18%, Sử thi 9%, Truyền thuyết 3%. Mỗi lần thắng rơi tối đa một mảnh, chia đều bốn vũ khí trong phẩm chất. Quý trở lên không có ở boss thường; Auto Farm, vòng thường, thua và rương không cấp mảnh skin. Tỷ lệ hiện trước trận, thưởng thực nhận hiện sau trận và chỉ trả một lần.
+
+Skin, cấu hình và mảnh được lưu/khôi phục; bản lưu cũ thêm bộ sưu tập rỗng, giữ tiến trình và mảnh chung. Prototype vẫn chưa lưu lượt đang chơi qua reload. 133 kiểm thử đạt và 36 chuyến mô phỏng hồi quy; chưa kiểm chứng thời gian săn skin, nguồn đồ để đạt VII, kinh tế hoặc cân bằng cuối game.
+
+### Tiến độ sau bước 10
+
+Ước tính **95% phần triển khai cơ chế của feedback ban đầu**: giới hạn khay, công dụng bộ sưu tập/mảnh và vòng lặp nhận–sử dụng tài nguyên đã được xử lý. Đây là ước tính phạm vi, không phải tỷ lệ test, không đo độ vui/cân bằng, và không lấy số lượng skin mới để cộng tiến độ. Phần còn lại cần chơi thử với người thật, đo tổng chuyến 3–5 phút, quyết định ghép/giữ đôi, áp lực 5×5, giá trị đổi Loadout và quan hệ chơi trực tiếp/Auto Farm. Phạm vi skin mới còn cần cân bằng dài hạn riêng.
+
+
+## Bước 11 — Chơi thử có nhật ký toàn chuyến
+
+Đã chốt A/A/A: nhật ký tự ghi và xuất JSON; đợt đầu sáu cấu hình (3 Loadout × balo 3×3/5×5) tại stage 2, seed 57241, không skin/nâng cấp; sau khi có bằng chứng chỉ sửa một nhóm vấn đề mỗi đợt. Chưa chỉnh tham số cân bằng ở bước này.
+
+Hồ sơ thử riêng, giữ tài khoản/chuyến thật. Tính thời gian từ chuẩn bị đầu chuyến đến thắng boss, gồm sắp xếp, tiếp tế, xem kết quả và các lần thử lại. Tách thời gian ×1/×2, tạm dừng, ẩn trang, năng lượng và khoảng gián đoạn không đo được. Chỉ chuyến thắng ×1 hợp lệ mới được đối chiếu mốc 3–5 phút; thua/bỏ dở vẫn được thống kê. QA loại khỏi tổng hợp.
+
+Ghi sự kiện, đội hình/số ô/khay/HP/Lộ phí/năng lượng từng lần xuất phát và kết quả từng vòng. Hai câu nhận xét “Quyết định khó nhất?” / “Chơi lại sẽ đổi gì?” được lưu cùng báo cáo. Giữ 30 lượt gần nhất, xuất JSON chủ động, không gửi dữ liệu mạng. Reload đang thử ghi lượt gián đoạn tại mốc lưu gần nhất; chưa khôi phục hành trang thử.
+
+Quy trình chi tiết: [PLAYTEST.md](PLAYTEST.md). Tiến độ cơ chế vẫn ước tính 95%; hoàn thành công cụ đo không đồng nghĩa đã trả lời các câu hỏi độ vui, đa dạng Loadout, áp lực diện tích, kinh tế và giá trị chơi lại. Đợt stage 3 rồi stage 4–5 có skin sẽ được quyết định sau dữ liệu đợt đầu.
+
+## Bước 12 — Thu thập dữ liệu và ưu tiên cân bằng tiếp tế
+
+Đã chốt A/A/A: người chơi thử sáu cấu hình của bước 11 ở ×1 và gửi JSON; ưu tiên nguồn tiếp tế/áp lực diện tích; nếu có bằng chứng balo lớn thiếu đánh đổi, thử điều chỉnh cấu trúc gói tiếp tế trước, giữ hệ số ghép. Thứ tự chơi, cách ghi nhận và xuất file đã bổ sung trong [PLAYTEST.md](PLAYTEST.md).
+
+Trạng thái: đã chuẩn bị quy trình, chờ lượt chơi thật và JSON. Chưa sửa thông số hoặc kết luận hoàn tất cân bằng; tiến độ cơ chế giữ khoảng 95%.
